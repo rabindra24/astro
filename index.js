@@ -29,8 +29,8 @@ app.post("/register", (req, res) => {
 });
 
 app.post("/login", async (req, res) => {
-  const username = req.body.firstname;
-  const password = req.body.password;
+  // const username = req.body.firstname;
+  // const password = req.body.password;
   // User.find({ name: username, password: password }, (err, users) => {
   //   if (err) {
   //     console.log(err);
@@ -38,12 +38,15 @@ app.post("/login", async (req, res) => {
   //     console.log(users);
   //   }
   // });
-
-  await User.find({ name: username, password: password })
+  console.log("rekdfk");
+  await User.find()
     .then((users) => {
-      res.send(users)
+       console.log("users")
+       res.send(users);
     })
     .catch((err) => {
+      console.log("Error")
+
       console.log(err);
     });
 });
